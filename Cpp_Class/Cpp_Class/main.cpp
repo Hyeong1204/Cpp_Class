@@ -56,6 +56,7 @@ public:
 
 	void Speak() {
 		cout << _name << "이 음매합니다. " << endl;
+	}
 };
 
 class Chicken : public Stock{
@@ -100,7 +101,8 @@ public :
 		: Stock(name, age, weight, geight){}
 
 	void Speak() {
-		cout << _name << "이 히이이이힝합니다. " << endl;
+		cout << _name << "이 히이이이힝합니다. " << endl; \
+	}
 };
 
 int main(void) {
