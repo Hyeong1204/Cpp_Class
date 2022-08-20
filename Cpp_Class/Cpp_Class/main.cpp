@@ -1,15 +1,19 @@
 #include <iostream>
+#include "main.h"
 
 using namespace std;;
 
-class Studen {
+class Student {
 private :
 	string _name;	// 멤버 변수
 	int _age;
 	int _grade;
 
 public :
-	Studen(string name, int age, int grade)
+	Student() {
+
+	}
+	Student(string name, int age, int grade)		// 인자를 받는 생성자
 		:_name(name), _age(age), _grade(grade) {}
 
 	void init(string name, int age, int grade) {
@@ -37,6 +41,31 @@ int SetScore(int value) {
 // 변수의 종류
 // 접근범위, 존속기간
 int main(void) {
+	
+	Student* pa = new Student("monster", 10, 3);	// 동적객체 할당
+
+	pa->info();	// 주소값으로 클래스의 멤버에 접근할때는 화살표 연산자를 사용합니다.
+
+	
+
+	delete pa;	// 동적객체 반환
+
+	Student *parray = new Student[5];	// 동적객체 배열을 만들려면 기본 생성자를 만들어야함
+
+	for (int i = 0; i < 5; i++) {
+		parray[i].init("monster", i, i);
+	}
+	for (int i = 0; i < 5; i++) {
+		parray[i].info();
+	}
+
+	delete[] parray;	// 동적객체 배열 할당 해제
+
+	return 0;
+}
+
+void Test_count()
+{
 
 	int a = 20;		// 로컬변수(지역변수), 장동변수
 
@@ -61,8 +90,6 @@ int main(void) {
 		cout << "parray[" << i << "] = " << parray[i] << endl;
 
 	delete[] parray;	// 동적배열 반환
-
-	return 0;
 }
 
 
